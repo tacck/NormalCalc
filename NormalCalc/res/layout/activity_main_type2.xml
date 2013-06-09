@@ -53,100 +53,100 @@
         <LinearLayout style="@style/PanelRow" >
             <Button
                 android:id="@+id/buttonMemClear"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_mc" />
             <Button
                 android:id="@+id/buttonMemPlus"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_mp" />
             <Button
                 android:id="@+id/buttonMemMinus"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_mm" />
             <Button
                 android:id="@+id/buttonMemRead"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_mr" />
         </LinearLayout>
         <LinearLayout style="@style/PanelRow" >
             <Button
                 android:id="@+id/buttonAllClear"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_ac" />
             <Button
                 android:id="@+id/buttonClear"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_c" />
-            <View style="@style/ButtonStyle" />
+            <View style="@style/ButtonStyleType2" />
             <Button
                 android:id="@+id/buttonSlash"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_div" />
         </LinearLayout>
         <LinearLayout style="@style/PanelRow" >
             <Button
                 android:id="@+id/buttonNum7"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_7" />
             <Button
                 android:id="@+id/buttonNum8"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_8" />
             <Button
                 android:id="@+id/buttonNum9"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_9" />
             <Button
                 android:id="@+id/buttonAsterisk"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_mul" />
         </LinearLayout>
         <LinearLayout style="@style/PanelRow" >
             <Button
                 android:id="@+id/buttonNum4"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_4" />
             <Button
                 android:id="@+id/buttonNum5"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_5" />
             <Button
                 android:id="@+id/buttonNum6"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_6" />
             <Button
                 android:id="@+id/buttonMinus"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_minus" />
         </LinearLayout>
         <LinearLayout style="@style/PanelRow" >
             <Button
                 android:id="@+id/buttonNum1"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_1" />
             <Button
                 android:id="@+id/buttonNum2"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_2" />
             <Button
                 android:id="@+id/buttonNum3"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_3" />
             <Button
                 android:id="@+id/buttonPlus"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_plus" />
         </LinearLayout>
         <LinearLayout style="@style/PanelRow" >
             <Button
                 android:id="@+id/buttonNum0"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_0" />
-            <View style="@style/ButtonStyle" />
-            <View style="@style/ButtonStyle" />
+            <View style="@style/ButtonStyleType2" />
+            <View style="@style/ButtonStyleType2" />
             <Button
                 android:id="@+id/buttonEqual"
-                style="@style/ButtonStyle"
+                style="@style/ButtonStyleType2"
                 android:text="@string/label_button_eq" />
         </LinearLayout>
     </LinearLayout>

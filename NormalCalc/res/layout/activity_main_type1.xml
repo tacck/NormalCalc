@@ -78,7 +78,9 @@
                 android:id="@+id/buttonClear"
                 style="@style/ButtonStyleType1"
                 android:text="@string/label_button_c" />
-            <View style="@style/ButtonStyleType1" />
+            <View
+                style="@style/ButtonStyleType1"
+                android:visibility="invisible" />
             <Button
                 android:id="@+id/buttonSlash"
                 style="@style/ButtonStyleType1"
@@ -143,8 +145,12 @@
                 android:id="@+id/buttonNum0"
                 style="@style/ButtonStyleType1"
                 android:text="@string/label_button_0" />
-            <View style="@style/ButtonStyleType1" />
-            <View style="@style/ButtonStyleType1" />
+            <View
+                style="@style/ButtonStyleType1"
+                android:visibility="invisible" />
+            <View
+                style="@style/ButtonStyleType1"
+                android:visibility="invisible" />
             <Button
                 android:id="@+id/buttonEqual"
                 style="@style/ButtonStyleType1"
