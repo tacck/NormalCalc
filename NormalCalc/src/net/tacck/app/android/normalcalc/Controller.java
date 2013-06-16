@@ -109,14 +109,9 @@ public class Controller {
         }
 
         // Set input value.
-        int digit = 0;
-        if (mInputValue >= 0) {
-            digit = String.valueOf(mInputValue).length();
-        } else {
-            digit = String.valueOf(mInputValue).length() - 1;
-        }
-        if (digit <= DISPLAY_DIGIT_MAX) {
-            mInputValue = mInputValue * 10 + number;
+        long inputValue = mInputValue * 10 + number;
+        if (!isDigitOver(inputValue)) {
+            mInputValue = inputValue;
         }
 
         // Draw value.
@@ -139,6 +134,36 @@ public class Controller {
 
         // Set operator.
         mOperator = OPERATOR_ADDITION;
+    }
+
+    public void pushButtonMinus() {
+        // Check state.
+        if (mState == STATE_EXECUTED) {
+            // Set state.
+            mState = STATE_CALC;
+            // Set operator before calc().
+            mOperator = OPERATOR_SUBTRACTION;
+        }
+
+        calc();
+
+        // Set operator.
+        mOperator = OPERATOR_SUBTRACTION;
+    }
+
+    public void pushButtonAsterisk() {
+        // Check state.
+        if (mState == STATE_EXECUTED) {
+            // Set state.
+            mState = STATE_CALC;
+            // Set operator before calc().
+            mOperator = OPERATOR_MULTIPLICATION;
+        }
+
+        calc();
+
+        // Set operator.
+        mOperator = OPERATOR_MULTIPLICATION;
     }
 
     /**
@@ -181,8 +206,13 @@ public class Controller {
         // Reset operator.
         mOperator = OPERATOR_NONE;
 
-        // Draw value.
-        drawValue(mValue);
+        // Check Digits.
+        if (isDigitOver(mValue)) {
+            drawErrorMessage();
+        } else {
+            // Draw value.
+            drawValue(mValue);
+        }
     }
 
     /**
@@ -207,6 +237,38 @@ public class Controller {
     }
 
     /**
+     * Draw Error Message.
+     */
+    private void drawErrorMessage() {
+        // Draw Error Message.
+        if (mOnDisplayListener != null) {
+            mOnDisplayListener.onDrawErrorDisplayListener("Error");
+        }
+    }
+
+    /**
+     * Check the value's digit is over the limit.
+     * 
+     * @param value Value
+     * @return true: over false: not over
+     */
+    private boolean isDigitOver(long value) {
+        boolean ret = false;
+
+        int digit = 0;
+        if (value >= 0) {
+            digit = String.valueOf(value).length();
+        } else {
+            digit = String.valueOf(value).length() - 1;
+        }
+        if (digit > DISPLAY_DIGIT_MAX) {
+            ret = true;
+        }
+
+        return ret;
+    }
+
+    /**
      * OnDisplayListener
      */
     public interface OnDisplayListener {
@@ -216,5 +278,12 @@ public class Controller {
          * @param value Value that want to draw
          */
         public void onDrawDisplayListener(long value);
+
+        /**
+         * Draw Error Message.
+         * 
+         * @param message Error Message
+         */
+        public void onDrawErrorDisplayListener(String message);
     }
 }

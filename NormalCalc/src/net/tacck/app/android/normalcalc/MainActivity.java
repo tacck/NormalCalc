@@ -106,10 +106,10 @@ public class MainActivity extends Activity implements OnDisplayListener, OnClick
                 mController.pushButtonPlus();
                 break;
             case R.id.buttonMinus:
-                // TODO: Phase 2.
+                mController.pushButtonMinus();
                 break;
             case R.id.buttonAsterisk:
-                // TODO: Phase 2.
+                mController.pushButtonAsterisk();
                 break;
             case R.id.buttonSlash:
                 // TODO: Phase 3.
@@ -137,5 +137,10 @@ public class MainActivity extends Activity implements OnDisplayListener, OnClick
     @Override
     public void onDrawDisplayListener(long value) {
         mTextView.setText(String.valueOf(value));
+    }
+
+    @Override
+    public void onDrawErrorDisplayListener(String message) {
+        mTextView.setText(message);
     }
 }
