@@ -22,28 +22,52 @@
  */
 package net.tacck.app.android.normalcalc;
 
+/**
+ * Normal Calc Controller class.
+ */
 public class Controller {
 
+    /** Max digits. */
+    private static final int DISPLAY_DIGIT_MAX = 10;
+
+    /** State: Calc mode. */
     private static final int STATE_CALC = 0;
+    /** State: Executed mode. */
     private static final int STATE_EXECUTED = 1;
 
+    /** Operator: None. */
     private static final int OPERATOR_NONE = 0;
+    /** Operator: Addition. */
     private static final int OPERATOR_ADDITION = 1;
+    /** Operator: Subtraction. */
     private static final int OPERATOR_SUBTRACTION = 2;
+    /** Operator: Multiplication. */
     private static final int OPERATOR_MULTIPLICATION = 3;
+    /** Operator: Division. */
     private static final int OPERATOR_DIVISION = 4;
 
+    /** Value. */
     private long mValue = 0;
+    /** Input Value. */
     private long mInputValue = 0;
+    /** State. */
     private int mState = STATE_EXECUTED;
+    /** Operator. */
     private int mOperator = OPERATOR_NONE;
 
+    /** OnDisplayListener. */
     private OnDisplayListener mOnDisplayListener = null;
 
+    /**
+     * Constracter.
+     */
     public Controller() {
         init();
     }
 
+    /**
+     * Initialization.
+     */
     private void init() {
         mValue = 0;
         mInputValue = 0;
@@ -51,6 +75,9 @@ public class Controller {
         mOperator = OPERATOR_NONE;
     }
 
+    /**
+     * Push Button: C.
+     */
     public void pushButtonClear() {
         mInputValue = 0;
 
@@ -58,6 +85,9 @@ public class Controller {
         drawValue(mInputValue);
     }
 
+    /**
+     * Push Button: AC.
+     */
     public void pushButtonAllClear() {
         init();
 
@@ -65,6 +95,9 @@ public class Controller {
         drawValue(mValue);
     }
 
+    /**
+     * Push Button: Number.
+     */
     public void pushButtonNumber(int number) {
         // Check state.
         if (mState == STATE_EXECUTED) {
@@ -76,12 +109,23 @@ public class Controller {
         }
 
         // Set input value.
-        mInputValue = mInputValue * 10 + number;
+        int digit = 0;
+        if (mInputValue >= 0) {
+            digit = String.valueOf(mInputValue).length();
+        } else {
+            digit = String.valueOf(mInputValue).length() - 1;
+        }
+        if (digit <= DISPLAY_DIGIT_MAX) {
+            mInputValue = mInputValue * 10 + number;
+        }
 
         // Draw value.
         drawValue(mInputValue);
     }
 
+    /**
+     * Push Button: +.
+     */
     public void pushButtonPlus() {
         // Check state.
         if (mState == STATE_EXECUTED) {
@@ -97,6 +141,9 @@ public class Controller {
         mOperator = OPERATOR_ADDITION;
     }
 
+    /**
+     * Push Button: =.
+     */
     public void pushButtonEqual() {
         // Check state.
         if (mState == STATE_CALC) {
@@ -107,6 +154,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Calculation.
+     */
     private void calc() {
         switch (mOperator) {
             case OPERATOR_ADDITION:
@@ -135,10 +185,20 @@ public class Controller {
         drawValue(mValue);
     }
 
+    /**
+     * Set OnDisplayListener.
+     * 
+     * @param l OnDisplayListener
+     */
     public void setOnDisplayListener(OnDisplayListener l) {
         mOnDisplayListener = l;
     }
 
+    /**
+     * Draw Value.
+     * 
+     * @param value Value that want to draw
+     */
     private void drawValue(long value) {
         // Draw value.
         if (mOnDisplayListener != null) {
@@ -146,7 +206,15 @@ public class Controller {
         }
     }
 
+    /**
+     * OnDisplayListener
+     */
     public interface OnDisplayListener {
+        /**
+         * Draw Value.
+         * 
+         * @param value Value that want to draw
+         */
         public void onDrawDisplayListener(long value);
     }
 }

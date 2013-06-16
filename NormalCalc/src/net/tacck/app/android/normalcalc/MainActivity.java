@@ -29,8 +29,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+/**
+ * Normal Calc Main Activity class.
+ */
 public class MainActivity extends Activity implements OnDisplayListener, OnClickListener {
 
+    /** Button IDs. */
     private static final int[] BUTTON_IDS = { R.id.buttonNum0, R.id.buttonNum1, R.id.buttonNum2,
             R.id.buttonNum3, R.id.buttonNum4, R.id.buttonNum5, R.id.buttonNum6, R.id.buttonNum7,
             R.id.buttonNum8, R.id.buttonNum9, R.id.buttonClear, R.id.buttonAllClear,
@@ -38,7 +42,10 @@ public class MainActivity extends Activity implements OnDisplayListener, OnClick
             R.id.buttonEqual, R.id.buttonMemClear, R.id.buttonMemRead, R.id.buttonMemPlus,
             R.id.buttonMemMinus, };
 
+    /** Controller. */
     private Controller mController = null;
+
+    /** Display. */
     private TextView mTextView = null;
 
     @Override
