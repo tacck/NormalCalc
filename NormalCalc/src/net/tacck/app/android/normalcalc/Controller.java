@@ -136,6 +136,9 @@ public class Controller {
         mOperator = OPERATOR_ADDITION;
     }
 
+    /**
+     * Push Button: -.
+     */
     public void pushButtonMinus() {
         // Check state.
         if (mState == STATE_EXECUTED) {
@@ -151,6 +154,9 @@ public class Controller {
         mOperator = OPERATOR_SUBTRACTION;
     }
 
+    /**
+     * Push Button: *.
+     */
     public void pushButtonAsterisk() {
         // Check state.
         if (mState == STATE_EXECUTED) {
