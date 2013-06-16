@@ -50,6 +50,8 @@ public class Controller {
     private long mValue = 0;
     /** Input Value. */
     private long mInputValue = 0;
+    /** Memory Value. */
+    private long mMemoryValue = 0;
     /** State. */
     private int mState = STATE_EXECUTED;
     /** Operator. */
@@ -63,6 +65,7 @@ public class Controller {
      */
     public Controller() {
         init();
+        mMemoryValue = 0;
     }
 
     /**
@@ -173,6 +176,24 @@ public class Controller {
     }
 
     /**
+     * Push Button: /.
+     */
+    public void pushButtonSlash() {
+        // Check state.
+        if (mState == STATE_EXECUTED) {
+            // Set state.
+            mState = STATE_CALC;
+            // Set operator before calc().
+            mOperator = OPERATOR_DIVISION;
+        }
+
+        calc();
+
+        // Set operator.
+        mOperator = OPERATOR_DIVISION;
+    }
+
+    /**
      * Push Button: =.
      */
     public void pushButtonEqual() {
@@ -182,6 +203,47 @@ public class Controller {
             mState = STATE_EXECUTED;
 
             calc();
+        }
+    }
+
+    /**
+     * Push Button: MR.
+     */
+    public void pushButtonMemoryRead() {
+        // Set Input Value from Memory Value.
+        mInputValue = mMemoryValue;
+
+        // Draw Value.
+        drawValue(mInputValue);
+    }
+
+    /**
+     * Push Button: MC.
+     */
+    public void pushButtonMemoryClear() {
+        // Clear Memory Value.
+        mMemoryValue = 0;
+    }
+
+    /**
+     * Push Button: M+.
+     */
+    public void pushButtonMemoryPlus() {
+        // Set Input Value from Memory Value.
+        long memoryValue = mMemoryValue + mInputValue;
+        if (!isDigitOver(memoryValue)) {
+            mMemoryValue = memoryValue;
+        }
+    }
+
+    /**
+     * Push Button: M-.
+     */
+    public void pushButtonMemoryMinus() {
+        // Set Input Value from Memory Value.
+        long memoryValue = mMemoryValue - mInputValue;
+        if (!isDigitOver(memoryValue)) {
+            mMemoryValue = memoryValue;
         }
     }
 

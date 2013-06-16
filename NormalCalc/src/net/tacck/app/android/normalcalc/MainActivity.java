@@ -112,22 +112,22 @@ public class MainActivity extends Activity implements OnDisplayListener, OnClick
                 mController.pushButtonAsterisk();
                 break;
             case R.id.buttonSlash:
-                // TODO: Phase 3.
+                mController.pushButtonSlash();
                 break;
             case R.id.buttonEqual:
                 mController.pushButtonEqual();
                 break;
             case R.id.buttonMemRead:
-                // TODO: Phase 3.
+                mController.pushButtonMemoryRead();
                 break;
             case R.id.buttonMemClear:
-                // TODO: Phase 3.
+                mController.pushButtonMemoryClear();
                 break;
             case R.id.buttonMemPlus:
-                // TODO: Phase 3.
+                mController.pushButtonMemoryPlus();
                 break;
             case R.id.buttonMemMinus:
-                // TODO: Phase 3.
+                mController.pushButtonMemoryMinus();
                 break;
             default:
                 break;
